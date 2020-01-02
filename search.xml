@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[搜索语法]]></title>
+    <url>%2F2020%2F01%2F02%2F%E6%90%9C%E7%B4%A2%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[百度搜索语法 Bing搜索语法 Google搜索语法 使用&quot;&quot;进行完全匹配， 使用方法：”关键字” 使用-排除关键字， 使用方法：关键字 -排除关键字 ， -后面没有空格 使用*进行模糊匹配 ， 使用方法：关键字 * 关键字 使用site指定网站， 使用方法：关键字 site:网址 使用filetype指定文件类型， 使用方法：关键字 filetype:文件类型 使用intitle指定网页标题， 使用方法：关键字 intitle:关键字 使用intext指定网页正文， 使用方法：关键字 intext:关键字]]></content>
+      <tags>
+        <tag>google</tag>
+        <tag>bing</tag>
+        <tag>baidu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[打开本地应用]]></title>
+    <url>%2F2020%2F01%2F01%2F%E6%89%93%E5%BC%80%E6%9C%AC%E5%9C%B0%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[windows用浏览器打开应用程序的方法 找到应用程序所在的文件位置： C:\Program Files (x86)\OSS\oss.exe 新建 regeit.reg 文件内容如下：(路径需要双斜线) 123456789101112131415Windows Registry Editor Version 5.00[HKEY_CLASSES_ROOT\oss]@="""URL Protocol"="C:\\Program Files (x86)\\OSS\\oss.exe"[HKEY_CLASSES_ROOT\oss\DefaultIcon]@="C:\\Program Files (x86)\\OSS\\oss.exe"[HKEY_CLASSES_ROOT\oss\Shell][HKEY_CLASSES_ROOT\oss\Shell\Open][HKEY_CLASSES_ROOT\oss\Shell\Open\Command]@="\"C:\\Program Files (x86)\\OSS\\oss.exe\" -e %1" 保存后双击运行该文件 在浏览器打开，如下添加 a 标签即可 1&lt;a href="oss://yourparams"&gt;打开oss&lt;/a&gt; 移动H5页面通过scheme打开本地APP 在 Android 中声明实现 scheme，首先需要在Android工程的 Manifest文件，给想要接收跳转的Activity添加 intent-filter 节点的配置拦截器规则 12345678910111213141516171819202122&lt;activity &lt;!--定义响应该scheme协议的 activity 的名称 --&gt; android:name=".DeepLinkActivity" &lt;!--需要添加下面的intent-filter配置--&gt; &lt;intent-filter&gt; &lt;action android:name="android.intent.action.VIEW"/&gt; &lt;category android:name="android.intent.category.DEFAULT"/&gt; &lt;!--scheme 允许在浏览器中打开--&gt; &lt;category android:name="android.intent.category.BROWSABLE"/&gt; &lt;!--scheme 相关信息配置--&gt; &lt;data android:scheme="" android:host="" android:port="" android:path="" android:mimeType="" android:pathPattern="" android:pathPrefix="" android:ssp="" android:sspPattern="" android:sspPrefix=""/&gt; &lt;/intent-filter&gt;&lt;/activity&gt; 在相应的 activity 可以获取 uri 中参数 1234567891011121314public class DeepLinkActivity extends AppCompatActivity &#123; private static final String TAG = "DeepLinkActivity"; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Intent intent = getIntent(); Log.e(TAG, "scheme:" + intent.getScheme()); Uri uri = intent.getData(); Log.e(TAG, "scheme: " + uri.getScheme()); // 获取 scheme 名称 Log.e(TAG, "host: " + uri.getHost()); // 获取 scheme 的host Log.e(TAG, "path: " + uri.getPath()); // 获取 scheme 的路径 &#125;&#125; 在一个 a 标签中打开]]></content>
+      <tags>
+        <tag>url</tag>
+        <tag>scheme</tag>
+        <tag>protocol</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS-font-face]]></title>
     <url>%2F2019%2F12%2F19%2FCSS-font-face%2F</url>
     <content type="text"><![CDATA[@font-face语法123456@font-face &#123; font-family: &lt;webFontName&gt;; src: &lt;source&gt; [&lt;format&gt;][,&lt;source&gt; [&lt;format&gt;]]*; [font-weight: &lt;weight&gt;]; [font-style: &lt;style&gt;];&#125; 注： format字体格式，用于帮助浏览器识别，truetype opentype truetype-aat embedded-opentype svg format格式 truetype - ttf Windows 和 Mac 最常见字体 RAW 格式，不为任何网站优化 IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile Safari4.2+ opentype - otf 原始字体格式，内置在 truetype 基础之上 提供更多功能 Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile Safari4.2+ web-open-font-format - woff Web 字体最佳格式 是一个开放的 truetype、opentype 压缩版本 支持元数据包的分离 IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+ embedded-opentype - eot IE 专用字体 可以从 truetype 创建此格式 IE4+ svg - svg 基于 svg 渲染 Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+ 123456789@font-face &#123; font-family: 'webFontName'; src: url('webFontName.eot'); /* IE9 Compat Modes */ src: url('webFontName.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('webFontName.woff2') format('woff2'), url('webFontName.woff') format('woff'), /* Modern Browsers */ url('webFontName.ttf') format('truetype'), /* Safari, Android, iOS */ url('webFontName.svg#webFontName') format('svg'); /* Legacy iOS */&#125;]]></content>
@@ -70,14 +90,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[严格模式]]></title>
-    <url>%2F2019%2F09%2F02%2Fjavascript-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[严格模式严格模式对Javascript的语法和行为，做了一些改变： 全局变量显式声明：在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。 1234"use strict";v = 1; // 报错，v未声明for(i = 0; i &lt; 2; i++) &#123;&#125;; // 报错，i未声明 显式报错：严格模式会使引起静默失败（不报错也没有任何效果）的赋值操作抛出异常。 123456"use strict";// 给不可写属性赋值var obj1 = &#123;&#125;;Object.defineProperty(obj1, "x", &#123; value: 42, writable: false &#125;);obj1.x = 9; // 抛出TypeError错误 禁止删除变量：严格模式禁止删除声明变量。 禁止使用with语句 创设eval作用域：正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。 1234"use strict";var x = 2;console.info(eval("var x = 5; x")); // 5console.info(x); // 2 arguments对象的限制：不允许对arguments赋值，不再追踪参数的变化，禁止使用arguments.callee。 重名错误：严格模式下，对象不能有重名的属性，函数不能有重名的参数。 1234567"use strict";var o = &#123; p: 1, p: 2 &#125;; // !!! 语法错误function sum(a, a, c) &#123; // !!! 语法错误 "use strict"; return a + a + c; // 代码运行到这里会出错&#125; 禁止八进制表示法：正常模式下，整数的第一位如果是0，表示这是八进制数。严格模式禁止这种表示法，整数第一位为0，将报错。 保留字：严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield，使用这些词作为变量名将会报错。]]></content>
-      <tags>
-        <tag>严格模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[动态加载]]></title>
     <url>%2F2019%2F09%2F02%2Fjavascript%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDimport%2F</url>
     <content type="text"><![CDATA[动态加载import()关键字import可以像调用函数一样来动态的导入模块。以这种方式调用，将返回一个 promise。 123import('/modules/my-module.js').then((module) =&gt; &#123; // Do something with the module.&#125;); 这种使用方式也支持 await 关键字 1let module = await import('/modules/my-module.js'); eval()12345jQuery.ajax('https://matrix.datastory.com.cn/frontApp/get?id=535&amp;name=index.js').done(jsJson =&gt; &#123; // js字符串代码中，将module作为返回值 window.module = window.eval(jsJson); console.log(module);&#125;); 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061// jsJson(function(t) &#123; var r = &#123;&#125;; function e(n) &#123; if (r[n]) &#123; return r[n].exports &#125; var i = r[n] = &#123; i: n, l: false, exports: &#123;&#125; &#125;; t[n].call(i.exports, i, i.exports, e); i.l = true; return i.exports &#125; e.m = t; e.c = r; e.d = function(t, r, n) &#123; if (!e.o(t, r)) &#123; Object.defineProperty(t, r, &#123; configurable: false, enumerable: true, get: n &#125;) &#125; &#125;; e.n = function(t) &#123; var r = t &amp;&amp; t.__esModule ? function r() &#123; return t["default"] &#125;: function r() &#123; return t &#125;; e.d(r, "a", r); return r &#125;; e.o = function(t, r) &#123; return Object.prototype.hasOwnProperty.call(t, r) &#125;; e.p = ""; return e(e.s = 10)&#125;)([ // ... // 10 function(t, r, e) &#123; function n(t) &#123; e(11) &#125; var i = e(21); var o = e(22); var a = e(52); var f = false; var u = n; var s = "data-v-60bfadd4"; var c = null; var l = i(o, a, f, u, s, c); t.exports = l.exports &#125;, // ...]);]]></content>
@@ -85,6 +97,14 @@
         <tag>eval</tag>
         <tag>import</tag>
         <tag>动态加载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[严格模式]]></title>
+    <url>%2F2019%2F09%2F02%2Fjavascript-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[严格模式严格模式对Javascript的语法和行为，做了一些改变： 全局变量显式声明：在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。 1234"use strict";v = 1; // 报错，v未声明for(i = 0; i &lt; 2; i++) &#123;&#125;; // 报错，i未声明 显式报错：严格模式会使引起静默失败（不报错也没有任何效果）的赋值操作抛出异常。 123456"use strict";// 给不可写属性赋值var obj1 = &#123;&#125;;Object.defineProperty(obj1, "x", &#123; value: 42, writable: false &#125;);obj1.x = 9; // 抛出TypeError错误 禁止删除变量：严格模式禁止删除声明变量。 禁止使用with语句 创设eval作用域：正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。 1234"use strict";var x = 2;console.info(eval("var x = 5; x")); // 5console.info(x); // 2 arguments对象的限制：不允许对arguments赋值，不再追踪参数的变化，禁止使用arguments.callee。 重名错误：严格模式下，对象不能有重名的属性，函数不能有重名的参数。 1234567"use strict";var o = &#123; p: 1, p: 2 &#125;; // !!! 语法错误function sum(a, a, c) &#123; // !!! 语法错误 "use strict"; return a + a + c; // 代码运行到这里会出错&#125; 禁止八进制表示法：正常模式下，整数的第一位如果是0，表示这是八进制数。严格模式禁止这种表示法，整数第一位为0，将报错。 保留字：严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield，使用这些词作为变量名将会报错。]]></content>
+      <tags>
+        <tag>严格模式</tag>
       </tags>
   </entry>
   <entry>
@@ -677,9 +697,9 @@
     <url>%2F2019%2F01%2F02%2FIE%E4%B8%AD%E7%9A%84JS%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[标识符与保留字保留字是JavaScript语言中定义具有特殊含义的标识符，保留字不能作为标识符使用。JavaScript语言中定义了一些具有专门的意义和用途的保留字，这些保留字称为关键字。 标识符：变量，属性，数组，函数名称 SCRIPT1010缺少标识符 ，一般在IE浏览器下，使用了保留字就会报这个错误，如： default, delete 等 SCRIPT10281234567// 对象最后一项是不允许有逗号的，跟json的规则相似let point = &#123; x: 1.2, y: -3.4 &#125;; // 合法声明let point = &#123; x: 1.2, y: -3.4, &#125;; // 缺少标识符、字符串或数字// 使用了保留字let point = &#123; x: 1.2, 'delete': -3.4 &#125;; // 合法声明let point = &#123; x: 1.2, delete: -3.4 &#125;; // 缺少标识符、字符串或数字 对象文字值的属性必须是标识符、字符串或数字。 对象文字值（也称为“对象初始值设定项”）由逗号分隔的“属性:值”对的列表构成，其中各对都括在括号中。 注：使用打包工具会存在&#39;delete&#39;变为delete的情况，最好不要使用保留字作为标识符。 版本1234// 相同工程：线上环境 // 存在以上问题// IE11 浏览器的 navigator.userAgent"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0)" 注：IE11不存在以上问题 1234// 相同工程：开发环境、vue、webpack-dev-server // 不存在以上问题// IE11 浏览器的 navigator.userAgent"Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; rv:11.0) like Gecko" 注：因为项目中未使用X-UA-Compatible指定IE内核版本 12&lt;!--使用后，线上环境恢复正常，与开发环境一致--&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt; 检测页面IE版本12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849function IEVersion() &#123; //取得浏览器的userAgent字符串 var userAgent = navigator.userAgent; //判断是否IE&lt;11浏览器 var isIE = userAgent.indexOf("compatible") &gt; -1 &amp;&amp; userAgent.indexOf("MSIE") &gt; -1; //判断是否IE的Edge浏览器 var isEdge = userAgent.indexOf("Edge") &gt; -1 &amp;&amp; !isIE; //判断是否IE11浏览器 var isIE11 = userAgent.indexOf('Trident') &gt; -1 &amp;&amp; userAgent.indexOf("rv:11.0") &gt; -1; if (isEdge) &#123; return 'edge'; //edge &#125; if (isIE11) &#123; return 11; //IE11 &#125; if (isIE) &#123; var reIE = new RegExp("MSIE (\\d+\\.\\d+);"); reIE.test(userAgent); var fIEVersion = parseFloat(RegExp["$1"]); if (fIEVersion == 7) &#123; return 7; &#125; if (fIEVersion == 8) &#123; return 8; &#125; if (fIEVersion == 9) &#123; return 9; &#125; if (fIEVersion == 10) &#123; return 10; &#125; &#123; return 6; //IE版本&lt;=7 &#125; &#125; return -1; //不是ie浏览器&#125;]]></content>
       <tags>
+        <tag>js</tag>
         <tag>IE</tag>
         <tag>兼容性</tag>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>
