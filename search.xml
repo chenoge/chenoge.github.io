@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[shell-select]]></title>
+    <url>%2F2020%2F01%2F19%2Fshell-select%2F</url>
+    <content type="text"><![CDATA[select in 循环select in 循环用来增强交互性，它可以显示出带编号的菜单，用户输入不同的编号就可以选择不同的菜单，并执行不同的功能。 Shell select in 循环的用法如下： 1234select variable in value_listdo statementsdone 注意：select 是无限循环（死循环），输入空值，或者输入的值无效，都不会结束循环，只有遇到 break 语句，或者按下Ctrl+D 组合键才能结束循环。 12345678910#!/bin/bash# Set PS3 promptPS3="Enter the space shuttle to get more information : "# set shuttle listselect shuttle in columbia endeavour challenger discovery atlantis enterprise pathfinderdo echo "$shuttle selected" breakdone 1234567891011121314151617181920212223242526272829#!/bin/bashPS3="What is your favourite OS?"select name in "Linux" "Windows" "Mac OS" "UNIX" "Android"do case $name in "Linux") echo "Linux是一个类UNIX操作系统，它开源免费，运行在各种服务器设备和嵌入式设备。" break ;; "Windows") echo "Windows是微软开发的个人电脑操作系统，它是闭源收费的。" break ;; "Mac OS") echo "Mac OS是苹果公司基于UNIX开发的一款图形界面操作系统，只能运行与苹果提供的硬件之上。" break ;; "UNIX") echo "UNIX是操作系统的开山鼻祖，现在已经逐渐退出历史舞台，只应用在特殊场合。" break ;; "Android") echo "Android是由Google开发的手机操作系统，目前已经占据了70%的市场份额。" break ;; *) echo "输入错误，请重新输入" esacdone]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+        <tag>select</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[shell-并行执行]]></title>
     <url>%2F2020%2F01%2F17%2Fshell-%E5%B9%B6%E8%A1%8C%E6%89%A7%E8%A1%8C%2F</url>
-    <content type="text"><![CDATA[后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;符号 1subcommand &amp; 此时主进程会继续往下执行，而b会在后台启动运行 于此同时，我们常会看到nohup会和后台任务一起使用，格式是： 1nohup subcommand &amp; nohup nohup起两个作用： 正如名字所声称的，忽略所有发送给子命令的挂断（SIGHUP）信号 重定向子命令的标准输出(stdout)和标准错误(stderr) 。subcommand的标准输出和标准错误被重定向到nohup.out文件；如果没有使用nohup方式，则subcommand的标准输出和标准错误是复用父进程的标准输出和标准错误。 wait命令 wait命令可以使当前shell进程挂起，等待所指定的由当前shell产生的子进程退出后，wait命令才返回。wait命令的参数可以是进程ID或是job 1wait [-n] [jobspec or pid …] wait命令的参数可以是进程ID或是job specification。举例如下： 123456789root# sleep 10 &amp;[3] 876root# wait 876[3]+ Done sleep 10root# sleep 20 &amp;[1] 877root# wait %1[1]+ Done sleep 20 在Bash shell脚本中启动多个后台进程（使用&amp;），然后调用wait命令，等待所有后台进程都运行完毕，Bash shell脚本再继续向下执行 123command1 &amp;command2 &amp;wait sleep命令1sleep [--help] [--version] number[smhd] –help : 显示辅助讯息 –version : 显示版本编号 number : 时间长度，后面可接 s、m、h 或 d 其中 s 为秒，m 为 分钟，h 为小时，d 为日数]]></content>
+    <content type="text"><![CDATA[后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;符号 1subcommand &amp; 此时主进程会继续往下执行，而子命令会在后台启动运行 于此同时，我们常会看到nohup会和后台任务一起使用，格式是： 1nohup subcommand &amp; nohup nohup起两个作用： 正如名字所声称的，忽略所有发送给子命令的挂断（SIGHUP）信号 重定向子命令的标准输出(stdout)和标准错误(stderr) 。subcommand的标准输出和标准错误被重定向到nohup.out文件；如果没有使用nohup方式，则subcommand的标准输出和标准错误是复用父进程的标准输出和标准错误。 wait命令 wait命令可以使当前shell进程挂起，等待所指定的由当前shell产生的子进程退出后，wait命令才返回。wait命令的参数可以是进程ID或是job 1wait [-n] [jobspec or pid …] wait命令的参数可以是进程ID或是job specification。举例如下： 123456789root# sleep 10 &amp;[3] 876root# wait 876[3]+ Done sleep 10root# sleep 20 &amp;[1] 877root# wait %1[1]+ Done sleep 20 在Bash shell脚本中启动多个后台进程（使用&amp;），然后调用wait命令，等待所有后台进程都运行完毕，Bash shell脚本再继续向下执行 123command1 &amp;command2 &amp;wait sleep命令1sleep [--help] [--version] number[smhd] –help : 显示辅助讯息 –version : 显示版本编号 number : 时间长度，后面可接 s、m、h 或 d 其中 s 为秒，m 为 分钟，h 为小时，d 为日数]]></content>
       <tags>
         <tag>shell</tag>
         <tag>nohup</tag>
@@ -106,20 +116,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[严格模式]]></title>
-    <url>%2F2019%2F09%2F02%2Fjavascript-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[严格模式严格模式对Javascript的语法和行为，做了一些改变： 全局变量显式声明：在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。 1234"use strict";v = 1; // 报错，v未声明for(i = 0; i &lt; 2; i++) &#123;&#125;; // 报错，i未声明 显式报错：严格模式会使引起静默失败（不报错也没有任何效果）的赋值操作抛出异常。 123456"use strict";// 给不可写属性赋值var obj1 = &#123;&#125;;Object.defineProperty(obj1, "x", &#123; value: 42, writable: false &#125;);obj1.x = 9; // 抛出TypeError错误 禁止删除变量：严格模式禁止删除声明变量。 禁止使用with语句 创设eval作用域：正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。 1234"use strict";var x = 2;console.info(eval("var x = 5; x")); // 5console.info(x); // 2 arguments对象的限制：不允许对arguments赋值，不再追踪参数的变化，禁止使用arguments.callee。 重名错误：严格模式下，对象不能有重名的属性，函数不能有重名的参数。 1234567"use strict";var o = &#123; p: 1, p: 2 &#125;; // !!! 语法错误function sum(a, a, c) &#123; // !!! 语法错误 "use strict"; return a + a + c; // 代码运行到这里会出错&#125; 禁止八进制表示法：正常模式下，整数的第一位如果是0，表示这是八进制数。严格模式禁止这种表示法，整数第一位为0，将报错。 保留字：严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield，使用这些词作为变量名将会报错。]]></content>
-      <tags>
-        <tag>严格模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[javascript-eval-function]]></title>
     <url>%2F2019%2F09%2F02%2Fjavascript-eval-function%2F</url>
     <content type="text"><![CDATA[FunctionFunction 构造函数创建一个新的Function对象。 在 JavaScript 中, 每个函数实际上都是一个Function对象。 1let fn = new Function ([arg1[, arg2[, ...argN]],] functionBody); 12let sum = new Function('a', 'b', 'return a + b');console.log(sum(2, 6)); // 8 注： 以调用函数的方式调用Function 构造函数，跟以构造函数来调用是一样的 使用Function 构造函数生成的Function对象是在函数创建时解析的。这比使用函数声明或者函数表达式并在代码中调用更为低效，因为使用后者创建的函数是跟其他代码一起解析的。 使用Function 构造函数生成的函数，并不会在创建它们的上下文中创建闭包，它们一般在全局作用域中被创建。当运行这些函数的时候，它们只能访问自己的本地变量和全局变量，不能访问Function 构造函数被调用生成的上下文的作用域。这和使用带有函数表达式代码的 eval 不同。 12345678910// 1、f()函数返回的function e()是闭包.var n = 1;function f()&#123; var n = 2; function e()&#123; return n; &#125; return e;&#125;console.log (f()()); // 2 12345678// 2、f()函数返回的function e()是全局作用域函数var n = 1;function f()&#123; var n = 2; var e = new Function("return n;"); return e;&#125;console.log (f()()); // 1 evaleval() 函数会将传入的字符串当做 JavaScript 代码进行执行。 1var value = eval(string); 返回值： 返回字符串代码的返回值，如果返回值为空，则返回 undefined 如果 eval() 的参数不是字符串， eval() 会将参数原封不动地返回 注意： 如果你间接的使用 eval()，而不是直接的调用 eval。 从 ECMAScript 5起，它工作在全局作用域下，而不是局部作用域中。 1234567891011121314function test() &#123; var x = 2, y = 4; // 直接调用，使用本地作用域 console.log(eval('x + y')); // 6 // 等价于在全局作用域调用 var geval = eval; // 间接调用，使用全局作用域 console.log(geval('x + y')); // throws ReferenceError 因为`x`未定义 // 另一个间接调用的例子 (0, eval)('x + y');&#125; eval 中函数作为字符串被定义需要（和）作为前缀和后缀 1234let fctStr1 = 'function a() &#123;&#125;'let fctStr2 = '(function a() &#123;&#125;)'let fct1 = eval(fctStr1) // 返回undefinedlet fct2 = eval(fctStr2) // 返回一个函数]]></content>
       <tags>
         <tag>Function</tag>
         <tag>eval</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[严格模式]]></title>
+    <url>%2F2019%2F09%2F02%2Fjavascript-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[严格模式严格模式对Javascript的语法和行为，做了一些改变： 全局变量显式声明：在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。 1234"use strict";v = 1; // 报错，v未声明for(i = 0; i &lt; 2; i++) &#123;&#125;; // 报错，i未声明 显式报错：严格模式会使引起静默失败（不报错也没有任何效果）的赋值操作抛出异常。 123456"use strict";// 给不可写属性赋值var obj1 = &#123;&#125;;Object.defineProperty(obj1, "x", &#123; value: 42, writable: false &#125;);obj1.x = 9; // 抛出TypeError错误 禁止删除变量：严格模式禁止删除声明变量。 禁止使用with语句 创设eval作用域：正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。 1234"use strict";var x = 2;console.info(eval("var x = 5; x")); // 5console.info(x); // 2 arguments对象的限制：不允许对arguments赋值，不再追踪参数的变化，禁止使用arguments.callee。 重名错误：严格模式下，对象不能有重名的属性，函数不能有重名的参数。 1234567"use strict";var o = &#123; p: 1, p: 2 &#125;; // !!! 语法错误function sum(a, a, c) &#123; // !!! 语法错误 "use strict"; return a + a + c; // 代码运行到这里会出错&#125; 禁止八进制表示法：正常模式下，整数的第一位如果是0，表示这是八进制数。严格模式禁止这种表示法，整数第一位为0，将报错。 保留字：严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield，使用这些词作为变量名将会报错。]]></content>
+      <tags>
+        <tag>严格模式</tag>
       </tags>
   </entry>
   <entry>

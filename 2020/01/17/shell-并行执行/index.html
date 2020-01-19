@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而b会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHUP）">
+<meta name="description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而子命令会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHU">
 <meta name="keywords" content="shell,nohup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell-并行执行">
 <meta property="og:url" content="https://www.yf-gz.cn/2020/01/17/shell-并行执行/index.html">
 <meta property="og:site_name" content="chenogeの日志">
-<meta property="og:description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而b会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHUP）">
+<meta property="og:description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而子命令会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHU">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-17T04:40:31.493Z">
+<meta property="og:updated_time" content="2020-01-19T08:45:12.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell-并行执行">
-<meta name="twitter:description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而b会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHUP）">
+<meta name="twitter:description" content="后台运行 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;amp;符号  1subcommand &amp;amp;  此时主进程会继续往下执行，而子命令会在后台启动运行   于此同时，我们常会看到nohup会和后台任务一起使用，格式是：  1nohup subcommand &amp;amp; nohup nohup起两个作用：   正如名字所声称的，忽略所有发送给子命令的挂断（SIGHU">
 
 
 
@@ -336,7 +336,7 @@
       
         <h4 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h4><p> 在shell脚本中当我们需要把一个任务放在后台运行时，通常我们会使用&amp;符号 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subcommand &amp;</span><br></pre></td></tr></table></figure>
-<p> 此时<strong>主进程</strong>会继续往下执行，而b会在后台启动运行 </p>
+<p> 此时<strong>主进程</strong>会继续往下执行，而子命令会在后台启动运行 </p>
 <p> 于此同时，我们常会看到<code>nohup</code>会和后台任务一起使用，格式是： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup subcommand &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><p> nohup起两个作用： </p>
@@ -405,6 +405,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/19/shell-select/" rel="prev" title="shell-select">
+                shell-select <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -481,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">266</span>
+                  <span class="site-state-item-count">267</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +498,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">437</span>
+                  <span class="site-state-item-count">438</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
